@@ -25,7 +25,7 @@ return {
     end,
 
     select = function(valor)
-        return true, valor_lower
+        return true, valor
     end
 
 }
