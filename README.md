@@ -34,8 +34,7 @@ cargo run
 │   ├── cpf.lua
 │   ├── data.lua
 │   └── email.lua
-├── casos_teste_formatado.txt
-├── casos_teste_original.txt
+├── casos_teste.txt
 └── casos_teste_email.txt
 ```
 
