@@ -1,0 +1,38 @@
+ADD email_a alan.turing@bletchleypark.org
+GET email_a
+
+ADD email_b linus.torvalds@linuxfoundation.org
+GET email_b
+
+ADD email_c margaret.hamilton@
+
+ADD email_d @python.org
+ADD email_e @
+ADD email_f .com
+
+ADD email_joao timbl@w3.org
+ADD email_maria satoshi.nakamoto@bitcoin.org
+ADD email_joao satoshi.nakamoto@bitcoin.org
+GET email_maria
+
+GET email_outro
+ADD email_outro bjarnestroustrup@bell-labs.com
+GET email_outro
+
+ADD email
+
+ADD email_ 
+
+ADD
+
+ADD email_x Ana@Teste.COM
+GET email_x
+ADD email_y ana@teste.com
+
+GET 
+
+GET email
+
+GET email_
+
+EXIT
