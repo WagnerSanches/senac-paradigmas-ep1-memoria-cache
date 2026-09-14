@@ -17,12 +17,12 @@ impl Storage {
         self.database.get(chave)
     }
 
-    // pub fn buscar_por_valor(&self, valor: &str) -> Option<&String> {
-    //     for (chave, v) in self.database.iter() {
-    //         if v == valor {
-    //             return Some(chave);
-    //         }
-    //     }
-    //     None
-    // }
+    pub fn select_by_value(&self, valor: &str) -> Option<&String> {
+        for (chave, v) in self.database.iter() {
+            if v == valor {
+                return Some(chave);
+            }
+        }
+        None
+    }
 }

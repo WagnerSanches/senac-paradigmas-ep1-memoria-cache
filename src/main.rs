@@ -7,7 +7,7 @@ use std::cell::RefCell;
 
 fn main() {
     let database = Rc::new(RefCell::new(Storage::new()));
-    let extensions = lua_bridge::load_extensions(Rc::clone(&database));
+    let (_lua, extensions) = lua_bridge::load_extensions(Rc::clone(&database));
 
     input::repl(Rc::clone(&database), extensions);
 

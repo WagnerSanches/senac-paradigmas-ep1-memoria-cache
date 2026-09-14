@@ -11,15 +11,15 @@ pub struct Extension {
     pub select: Option<mlua::Function>,
 }
 
-pub fn load_extensions(database: Rc::<RefCell::<Storage>>) -> Vec::<Extension> {
+pub fn load_extensions(database: Rc::<RefCell::<Storage>>) -> (Lua, Vec::<Extension>){
     let lua = Lua::new();
     let mut extensions = Vec::<Extension>::new();
 
     let database_clone = Rc::clone(&database);
 
-    let database_select = lua.create_function(move |_, chave: String| {
+    let database_find_by_value = lua.create_function(move |_, chave: String| {
         let db = database_clone.borrow();
-        match db.select(&chave) {
+        match db.select_by_value(&chave) {
             Some(valor) => {
                 Ok(Some(valor.clone()))
             },
@@ -29,7 +29,7 @@ pub fn load_extensions(database: Rc::<RefCell::<Storage>>) -> Vec::<Extension> {
         }
     }).unwrap();
 
-    lua.globals().set("database_select", database_select).unwrap();
+    lua.globals().set("database_find_by_value", database_find_by_value).unwrap();
 
     fs::read_dir("extensions")
         .unwrap()
@@ -56,5 +56,5 @@ pub fn load_extensions(database: Rc::<RefCell::<Storage>>) -> Vec::<Extension> {
         });
     println!("Total de extensões carregadas: {}", extensions.len());
 
-    return extensions;
+    return (lua, extensions);
 }
