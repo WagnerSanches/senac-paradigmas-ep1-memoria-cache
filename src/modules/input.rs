@@ -75,6 +75,7 @@ pub fn repl(database: Rc::<RefCell::<Storage>>, extensions: Vec::<Extension>) {
                 }
             },
             Command::Error(msg) => println!("ERRO: {}", msg),
+            _ => println!("Comando não implementado"),
         }
     }
 

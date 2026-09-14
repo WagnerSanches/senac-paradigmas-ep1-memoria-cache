@@ -9,6 +9,10 @@ return {
             "88888888888", "99999999999"
         }
 
+        if string.match(valor, "%D") then
+            return false, "O CPF deve conter apenas números!"
+        end
+
         for _, cpf in ipairs(cpfs_invalidos) do
             if valor == cpf then
                 return false, "O CPF é inválido!"
