@@ -74,8 +74,7 @@ return {
         return true, valor
     end,
 
-    select = function(chave, valor)
-
+    select = function(valor)
 
         local parte1 = string.sub(valor, 1, 3)
         local parte2 = string.sub(valor, 4, 6)
