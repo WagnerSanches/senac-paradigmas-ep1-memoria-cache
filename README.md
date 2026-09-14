@@ -58,6 +58,12 @@ Cada `.lua` dentro de `extensions/` termina retornando `{ prefixo, insert, selec
 
 No boot o programa varre a pasta `extensions/`, carrega todos os `.lua` e guarda essas tabelas. Quando chega um comando, ele procura a primeira extensão cujo prefixo bate com a chave usada.
 
+## Estruturas de retorno
+
+- `Command` (parser): enum com `Add(chave, valor)`, `Get(chave)`, `Exit`, `Error(mensagem)`.
+- Chamadas às funções Lua devolvem `(bool, String)`, capturado do lado Rust como tupla.
+- Todo erro — de sintaxe no parser, chave inexistente num `GET`, ou `false` devolvido pelo Lua — vira `ERRO: <mensagem>` impresso pelo `input.rs`. Nenhum erro derruba o processo; o prompt sempre volta.
+
 ## Adicionando uma extensão nova
 
 1. Cria um `.lua` novo em `extensions/`, o nome do arquivo não importa.
