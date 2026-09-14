@@ -37,6 +37,16 @@ cargo run
 └── casos_teste_email.txt
 ```
 
+## Protocolo de registro de extensões
+
+Cada `.lua` em `extensions/` termina com `return { prefixo, insert, select }`.
+
+- **`prefixo`** (obrigatório): string comparada com `chave.starts_with(prefixo)`. Inclui o separador (`"cpf_"`, não `"cpf"`).
+- **`insert`** e **`select`** (opcionais): funções chamadas em `ADD` e `GET`, respectivamente. Se ausentes, o motor grava/lê o valor sem validação nem formatação.
+- Ambas sempre recebem `(chave, valor)` e sempre retornam `(bool, string)`: `true, valor` em sucesso, `false, mensagem` em erro.
+
+No boot, o motor varre `extensions/`, carrega todo `.lua` e guarda essas tabelas. Ao processar um comando, procura a primeira extensão cujo prefixo bate com a chave.
+
 ## Casos de teste
  
 - `casos_teste.txt`: casos fornecidos pelo enunciado, cobrindo CPF, Data e comportamento geral do núcleo. Todos os casos foram executados manualmente e conferidos contra o resultado esperado, sem divergência de comportamento.

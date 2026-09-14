@@ -24,7 +24,7 @@ return {
         return true, valor_lower
     end,
 
-    select = function(valor)
+    select = function(chave, valor)
         return true, valor
     end
 

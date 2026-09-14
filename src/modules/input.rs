@@ -58,7 +58,7 @@ pub fn repl(database: Rc::<RefCell::<Storage>>, extensions: Vec::<Extension>) {
                         match extension {
                             Some(ext) => {
                                 if let Some(select_func) = &ext.select {
-                                    let (sucesso, result): (bool, String) = select_func.call(valor.clone()).unwrap();
+                                    let (sucesso, result): (bool, String) = select_func.call((chave.clone(), valor.clone())).unwrap();
 
                                     if sucesso {
                                         println!("{}", result);
