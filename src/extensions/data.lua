@@ -36,7 +36,6 @@ return {
         
         return true, valor
     end,
-
     select = function(chave, valor)
         local ano, mes, dia = string.match(valor, "^(%d%d%d%d)-(%d%d)-(%d%d)$")
         local formatado = dia .. "/" .. mes .. "/" .. ano
