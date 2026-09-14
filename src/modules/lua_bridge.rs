@@ -30,7 +30,7 @@ pub fn load_extensions(database: Rc::<RefCell::<Storage>>) -> (Lua, Vec::<Extens
 
     lua.globals().set("database_find_by_value", database_find_by_value).unwrap();
 
-    fs::read_dir("extensions")
+    fs::read_dir("src/extensions")
         .unwrap()
         .filter_map(Result::ok)
         .for_each(|entry| {
