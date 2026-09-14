@@ -1,6 +1,5 @@
 use mlua::Lua;
-use std::fs::{self, DirEntry};
-use std::path::Path;
+use std::fs;
 use std::rc::Rc;
 use std::cell::RefCell;
 use super::storage::Storage;
